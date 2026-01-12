@@ -235,7 +235,7 @@ const totale = spese.reduce((somma, s) => somma + s.importo, 0)
         <ConfermaEliminazione
           messaggio={
             confermaEliminazione.tipo === 'tutto'
-              ? "Sei sicuro di voler eliminare tutte le spese? Questa azione non può essere annullata."
+              ? "Sei sicuro di voler eliminare tutte le spese e le categorie?"
               : "Sei sicuro di voler eliminare questa spesa?"
           }
           onConferma={() => {
