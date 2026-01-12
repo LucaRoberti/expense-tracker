@@ -28,13 +28,15 @@ function AggiungiSpesa({
 
   // Validazione e salvataggio della spesa
   const handleSubmit = () => {
-    if (!form.nota.trim() || !form.importo || !form.categoria) {
+    if (!form.nota.trim() || !form.importo || !form.categoria || form.importo < 0) {
       return;
     }
     onSave({
-      ...form,
       nota: form.nota.trim(),
-      importo: Number(form.importo)
+      importo: Number(form.importo),
+      data: form.data,
+      categoria: form.categoria
+
     });
   };
   

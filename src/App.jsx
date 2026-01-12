@@ -1,8 +1,4 @@
-// useState: serve per creare variabili che possono cambiare nel tempo (state)
-// useEffect: serve per eseguire codice quando qualcosa cambia o al primo caricamento
 import { useState, useEffect } from "react";
-
-import "./App.css";
 
 import ListaSpese from "./components/ListaSpese";
 import AggiungiSpesa from "./components/AggiungiSpesa";
@@ -15,6 +11,8 @@ import GestoreCategorie from "./components/GestoreCategorie";
 import DataOra from "./components/DataOra";
 import Calcolatrice from "./calculator/Calcolatrice";
 
+import "./App.css";
+
 
 function App() {
   // Questo array contiene tutte le spese inserite dall'utente
@@ -22,7 +20,6 @@ function App() {
     const salvate = localStorage.getItem("spese");
     
     // Se esistono spese salvate, le convertiamo da stringa JSON ad array JavaScript
-    // Altrimenti restituiamo un array vuoto []
     return salvate ? JSON.parse(salvate) : [];
   });
 
@@ -114,8 +111,10 @@ function App() {
   // Elimina una categoria dato il suo nome
   const eliminaCategoria = (nomeCategoria) => {
     setCategorie(categorie.filter(c => c.nome !== nomeCategoria));
+    setSpese(spese.filter(s => s.categoria !== nomeCategoria));
     if (categoriaSelezionata === nomeCategoria) {
       setCategoriaSelezionata("Tutte");
+      
     }
   };
 
