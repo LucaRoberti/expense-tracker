@@ -118,7 +118,6 @@ function App() {
     }
   };
 
-  // speseFiltrate: array di spese filtrato in base alla categoria selezionata
   const speseFiltrate =
     categoriaSelezionata === "Tutte"
       ? spese // Mostra tutto
@@ -178,31 +177,31 @@ const totale = spese.reduce((somma, s) => somma + s.importo, 0)
       <main className="content">
         <div className="left-column">
           <ListaSpese
-            spese={speseFiltrate} // Array di spese da mostrare
-            categorie={categorie} // Array di categorie per la select
-            categoriaSelezionata={categoriaSelezionata} // Categoria attualmente filtrata
-            onChangeCategoria={setCategoriaSelezionata} // Funzione per cambiare filtro
-            onModifica={(s) => { // Callback quando si clicca su modifica
+            spese={speseFiltrate}
+            categorie={categorie} 
+            categoriaSelezionata={categoriaSelezionata} 
+            onChangeCategoria={setCategoriaSelezionata} 
+            onModifica={(s) => { 
               setSpesaInModifica(s); // Impostiamo quale spesa stiamo modificando
-              setMostraModalSpesa(true); // Apriamo il modal di modifica
+              setMostraModalSpesa(true);
             }}
-            onElimina={(id) => // Callback quando si clicca su elimina
+            onElimina={(id) =>
               setConfermaEliminazione({ tipo: 'singola', id }) // Apriamo conferma con id
             }
           />
           <GestoreCategorie
             categorie={categorie} // Array di categorie da mostrare
             onAggiungiCategoria={() => setMostraModalCategoria(true)} 
-            onEliminaCategoria={eliminaCategoria} // Funzione per eliminare
+            onEliminaCategoria={eliminaCategoria}
           />
         </div>
         <div className="right-column">
           <GraficoBarre
-            spese={speseFiltrate} // Spese da visualizzare
+            spese={spese}
             categorie={categorie} // Categorie per ottenere i colori
           />
           <GraficoTorta
-            spese={speseFiltrate}
+            spese={spese}
             categorie={categorie}
           />
         </div>
