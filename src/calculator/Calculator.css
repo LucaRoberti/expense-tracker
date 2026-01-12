@@ -1,0 +1,160 @@
+/* OVERLAY CALCOLATRICE */
+.calculator-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--modal-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.calcolatrice {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 24px;
+  width: 360px;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+}
+
+.displayWindow {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.expression {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0 0 12px 0;
+  word-break: break-all;
+  text-align: right;
+  width: 100%;
+  min-height: 24px;
+}
+
+.result {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  word-break: break-all;
+  text-align: right;
+  width: 100%;
+}
+
+.keysWindow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.keys_basic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.keys_basic button {
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.keys_basic button:hover {
+  background: var(--border-color);
+  transform: scale(1.05);
+}
+
+.keys_basic button.number {
+  background: var(--bg-primary);
+}
+
+.keys_basic button.number:hover {
+  background: var(--border-color);
+}
+
+.keys_basic button:nth-child(4),
+.keys_basic button:nth-child(8),
+.keys_basic button:nth-child(12),
+.keys_basic button:nth-child(16) {
+  background: #f59e0b;
+  color: white;
+}
+
+.keys_basic button:nth-child(4):hover,
+.keys_basic button:nth-child(8):hover,
+.keys_basic button:nth-child(12):hover,
+.keys_basic button:nth-child(16):hover {
+  background: #d97706;
+}
+
+/* PUNTO - posizione 14 */
+.keys_basic button:nth-child(14) {
+  background: var(--bg-primary);
+}
+
+.keys_basic button:nth-child(14):hover {
+  background: var(--border-color);
+}
+
+.keys_basic button:nth-child(18),
+.keys_basic button:nth-child(19) {
+  background: #ef4444;
+  color: white;
+}
+
+.keys_basic button:nth-child(18):hover,
+.keys_basic button:nth-child(19):hover {
+  background: #dc2626;
+}
+
+.keys_basic button.equal {
+  background: #10b981;
+  color: white;
+}
+
+.keys_basic button.equal:hover {
+  background: #059669;
+}
+
+.close-calculator-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.close-calculator-btn:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
