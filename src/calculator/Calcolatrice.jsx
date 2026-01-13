@@ -16,7 +16,7 @@ const Calcolatrice = () => {
         risultato = parseFloat(risultato);
         setResult(risultato);
       } catch (error) {
-        setResult("Espressione non valida");
+        setResult("Errore");
       }   
   }
 
